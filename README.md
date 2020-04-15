@@ -42,7 +42,7 @@ Botとして運用する場合は、crontabに記述して定時に動かすと�
 0       6       *       *       1       acrank.py week 先週 -a
 0       21      *       *       4       acrank.py week 今週 --inprogress
 30      20      *       *       6       acrank.py week 今週 --inprogress --mute
-0       6       1       *       *       sleep 10 && acrank.py month `lastmonth`月
+0       6       1       *       *       sleep 10 && acrank.py month `tools/showmonth -p`月
 ```
 
 ### オプション
@@ -61,13 +61,11 @@ Botとして運用する場合は、crontabに記述して定時に動かすと�
 
 【〜月の、、】と簡単に設定するため（だけ）の簡単なシェルスクリプト。
 
-- `thismonth`：今月は何月か（例：2、12など）を表示する。
-- `lastmonth`：先月は何月だったかを表示する。1月に実行すると12。
-- `showmonth.py`：さらに高機能なPythonスクリプト。デフォルト動作は`this_month`と同じ。以下のオプションあり。
-  - `-p` / `--prev`：前月。単独で指定すると`last_month`と同じ。
+- `tools/showmonth.py`：今月は何月か（例：2、12など）を表示する。以下のオプションあり。
+  - `-p` / `--prev`：前月。単独指定して1月に実行すると12。
   - `-n` / `--next`：来月。
   - `-a (integer)` / `--after (integer)`：何ヶ月後かを指定。負の数もOK。
   - `--set_month (integer)`：現在ではなく指定した月を起点にする。
   - `-s` / `--slacksymbol`：Slack用に各月のシンボルを添えて出力。`:bamboo: 1`、`:christmas_tree:12`など。
-- `showyear.py`：`--slacksymbol`が無い以外は`showmonth.py`と同様。年指定は`--set_year`。
+- `tools/showyear.py`：`--slacksymbol`が無い以外は`showmonth.py`と同様。年指定は`--set_year`。
 
