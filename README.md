@@ -69,3 +69,9 @@ Botとして運用する場合は、crontabに記述して定時に動かすと�
   - `-s` / `--slacksymbol`：Slack用に各月のシンボルを添えて出力。`:bamboo: 1`、`:christmas_tree:12`など。
 - `tools/showyear.py`：`--slacksymbol`が無い以外は`showmonth.py`と同様。年指定は`--set_year`。
 
+### Version2 開発目標
+
+ローカルにデータを持たないクラウド動作を可能にする。
+例えば GitHub Actions でも実行可能なように。
+
+そのため、Google Drive / Google Spreadsheet、またはその他のクラウドストレージサービスに対応し、パスワード / token / 鍵だけをプライベートデータとして保持しておけばよいようにする。
